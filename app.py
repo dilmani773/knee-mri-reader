@@ -435,7 +435,10 @@ with tab_report:
     with l:
         pick = st.radio("Example report", list(SAMPLES), horizontal=True)
         text = st.text_area("Report text", value=SAMPLES[pick], height=230, key=f"rep_{pick}")
-        key = os.environ.get("GEMINI_API_KEY", "")
+        try:
+            key = st.secrets.get("GEMINI_API_KEY", "") or os.environ.get("GEMINI_API_KEY", "")
+        except Exception:
+            key = os.environ.get("GEMINI_API_KEY", "")
         if not key:
             key = st.text_input("Gemini API key (free from Google AI Studio)", type="password")
         go = st.button("Extract labels", type="primary", disabled=not key)

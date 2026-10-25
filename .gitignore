@@ -5,3 +5,4 @@ model_fold0.zip
 demo_case/*.jpg
 demo_case/*.jpeg
 demo_case/*.png
+.streamlit/secrets.toml
