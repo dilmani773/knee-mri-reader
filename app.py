@@ -39,8 +39,9 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
 :root{
-  --paper:#F3F5F7; --panel:#FFFFFF; --ink:#16202A; --muted:#5E6A77; --line:#D9DEE4;
-  --steel:#2F5D7C; --amber:#B7791F; --amber-soft:#F3E3C7; --well:#000000;
+  --paper:#11161C; --panel:#182029; --ink:#E4E9EE; --muted:#8B97A4; --line:#29323D;
+  --steel:#78A9CC; --amber:#E3A33D; --amber-soft:rgba(227,163,61,.16); --well:#000000;
+  --track:#26303A; --idle:#55626F;
 }
 html, body, [class*="css"], .stMarkdown, .stTextInput, .stTextArea, button, input, textarea {
   font-family:'IBM Plex Sans', system-ui, sans-serif !important;
@@ -70,7 +71,7 @@ html, body, [class*="css"], .stMarkdown, .stTextInput, .stTextArea, button, inpu
 
 .focus{ display:flex; gap:2px; height:14px; margin-top:2px; }
 .focus span{ flex:1; border-radius:1px; background:var(--steel); }
-.focus span.cur{ outline:2px solid var(--ink); outline-offset:1px; }
+.focus span.cur{ outline:2px solid var(--amber); outline-offset:1px; }
 .focuscap{ font-size:12px; color:var(--muted); margin-top:6px; }
 
 .findings{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px 20px 8px; }
@@ -82,14 +83,14 @@ html, body, [class*="css"], .stMarkdown, .stTextInput, .stTextArea, button, inpu
 .row .lab small{ color:var(--muted); font-size:11.5px; margin-left:6px; }
 .row .val{ font-size:14px; text-align:right; font-variant-numeric:tabular-nums; color:var(--muted); }
 .row.hit .lab, .row.hit .val{ color:var(--ink); font-weight:600; }
-.bar{ grid-column:1 / span 2; height:5px; background:#E8ECF0; border-radius:3px; margin-top:3px; }
-.bar i{ display:block; height:100%; border-radius:3px; background:#9AA7B4; }
+.bar{ grid-column:1 / span 2; height:5px; background:var(--track); border-radius:3px; margin-top:3px; }
+.bar i{ display:block; height:100%; border-radius:3px; background:var(--idle); }
 .row.hit .bar i{ background:var(--amber); }
 
 .chip{ display:inline-block; font-size:12.5px; padding:2px 9px; border-radius:10px; font-weight:500; }
-.chip.yes{ background:var(--amber-soft); color:#7A4E0C; }
-.chip.unc{ background:#E3EAF0; color:var(--steel); }
-.chip.no{ background:#EEF0F2; color:#8A949F; }
+.chip.yes{ background:var(--amber-soft); color:var(--amber); }
+.chip.unc{ background:rgba(120,169,204,.15); color:var(--steel); }
+.chip.no{ background:var(--track); color:var(--muted); }
 
 .credit{ font-size:12.5px; color:var(--muted); margin-top:8px; }
 .summary{ font-size:15.5px; line-height:1.5; color:var(--ink); margin-top:22px; padding-top:14px;
@@ -97,8 +98,9 @@ html, body, [class*="css"], .stMarkdown, .stTextInput, .stTextArea, button, inpu
 .summary b{ font-weight:600; }
 .kv, .kv tr, .kv td, .kv th{ border:none !important; background:none !important; }
 .kv td{ border-bottom:1px solid var(--line) !important; padding:10px 0 !important; }
-.stTextArea textarea{ background:#fff !important; border:1px solid var(--line) !important; }
-.stTextInput input{ background:#fff !important; }
+.stTextArea textarea{ background:var(--panel) !important; border:1px solid var(--line) !important; color:var(--ink) !important; }
+.stTextInput input{ background:var(--panel) !important; color:var(--ink) !important; }
+[data-testid="stExpander"] details{ background:var(--panel); border-color:var(--line) !important; }
 [data-testid="stSliderThumbValue"], [data-testid="stSliderTickBarMin"], [data-testid="stSliderTickBarMax"]{ display:none !important; }
 .prose{ font-size:15px; line-height:1.6; max-width:68ch; color:var(--ink); }
 .kv{ width:100%; border-collapse:collapse; font-size:14.5px; }
@@ -110,8 +112,8 @@ html, body, [class*="css"], .stMarkdown, .stTextInput, .stTextArea, button, inpu
   border-radius:50%; border:1.5px solid var(--steel); color:var(--steel); font-size:13px; font-weight:600;
   display:flex; align-items:center; justify-content:center; }
 .steps li b{ display:block; font-weight:600; }
-.stButton button{ border-radius:6px; border:1px solid var(--steel); color:var(--steel); background:#fff; font-weight:500; }
-.stButton button[kind="primary"]{ background:var(--steel); color:#fff; }
+.stButton button{ border-radius:6px; border:1px solid var(--steel); color:var(--steel); background:transparent; font-weight:500; }
+.stButton button[kind="primary"]{ background:var(--steel); color:#0B1117; border-color:var(--steel); }
 </style>
 """, unsafe_allow_html=True)
 
