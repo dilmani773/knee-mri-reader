@@ -1,0 +1,7 @@
+streamlit>=1.40
+torch
+timm
+numpy
+pillow
+opencv-python-headless
+google-genai
